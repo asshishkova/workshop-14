@@ -23,5 +23,7 @@
 }
 
 .star:hover {
-  background-color: yellow;
+  background-color: orange;
+  cursor: pointer;
+  border-radius: 50%;
 }

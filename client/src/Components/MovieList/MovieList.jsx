@@ -4,15 +4,19 @@ import {fetchMovies} from "../../Services/MovieService";
 
 export default function MovieList() {
     const [movies, setMovies] = useState([]);
+    const updateMovies = () => {
+      fetchMovies().then(fetchedMovies => {
+        setMovies(fetchedMovies);
+    });
+    }
     useEffect(() => {
-        fetchMovies().then(fetchedMovies => {
-            setMovies(fetchedMovies);
-        });
+      updateMovies();
     }, []);
     return <div>
         {movies.map((movie) => {
             return <MovieItem img={movie.img} title={movie.title} year={movie.year} synopsis={movie.synopsis}
-                              id={movie.id} key={movie.title} rating={movie.rating}/>;
+                              id={movie.id} key={movie.title} rating={movie.rating}
+                              updateMovies={updateMovies}/>;
         })
         }
     </div>;
