@@ -9,7 +9,7 @@ module.exports = {
                 img: movie.img,
                 synopsis: movie.synopsis,
                 rating: movie.rating,
-                year: movie.rating,
+                year: movie.year,
                 createdAt: new Date(),
                 updatedAt: new Date()
             };

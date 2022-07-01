@@ -12,7 +12,7 @@ export default function MovieList() {
     return <div>
         {movies.map((movie) => {
             return <MovieItem img={movie.img} title={movie.title} year={movie.year} synopsis={movie.synopsis}
-                              id={movie.id} key={movie.title}/>;
+                              id={movie.id} key={movie.title} rating={movie.rating}/>;
         })
         }
     </div>;
