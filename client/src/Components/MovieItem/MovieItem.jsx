@@ -1,17 +1,23 @@
 import styles from "./MovieItem.module.css";
+import empty_star from '../../assets/empty_star.png';
+import rated_star from '../../assets/rated_star.png';
+
 
 export default function MovieItem({id, title, synopsis, year, img, rating}) {
 
-  // const empty_star = '../../assets/empty_star.png';
-  const empty_star = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Empty_Star.svg/1200px-Empty_Star.svg.png';
-  const rated_star = 'https://pngroyale.com/wp-content/uploads/2021/12/star-png-star-empty-png-Png-Download.png'
+  const updateRating = async(i) => {
+    console.log('Star #', i + 1);
+    console.log('Current rating: ', rating);
+  }
   const stars = [];
   for (let i = 0; i < 5; i++) {
+    let star;
     if (i < parseInt(rating, 10)) {
-      stars.push(<img src={rated_star} alt="rated_star" className={styles.star}/>);
+      star = rated_star;
     } else {
-      stars.push(<img src={empty_star} alt="empty_star" className={styles.star}/>);
+      star = empty_star;
     }
+    stars.push(<img src={star} key={i} onClick={() => updateRating(i)} alt="star" className={styles.star} />);
   }
 
     return <section className={styles.wrapper}>
