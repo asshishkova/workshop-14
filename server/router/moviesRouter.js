@@ -8,7 +8,6 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/:id', async (req, res, next) => {
-  console.log('-------------','req.body:', req);
   const movieId = Number.parseInt(req.params.id);
   if (isNaN(movieId)) {
     const error = Error()
