@@ -10,6 +10,15 @@ async function getAllMovies() {
     }
 }
 
+async function updateRating(movieId, body) {
+  return await Movie.update({
+    rating: body.rating
+  }, {
+    where: { id: movieId }
+  })
+}
+
 module.exports = {
-    getAllMovies
+    getAllMovies,
+    updateRating
 };
